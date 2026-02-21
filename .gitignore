@@ -1,6 +1,11 @@
 .htaccess
+.DS_Store
+.idea/
 /config.php
 admin/config.php
+
+dist/
+dev/.env
 
 !index.html
 
