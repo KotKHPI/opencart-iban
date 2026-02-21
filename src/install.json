@@ -1,0 +1,7 @@
+{
+  "name": "Opendatabot IBAN Invoice Payment",
+  "description": "Adds a payment method that creates an IBAN invoice via Opendatabot and redirects the customer to pay it.",
+  "version": "0.1.3",
+  "author": "Opendatabot",
+  "link": "https://iban.opendatabot.ua/create-invoice"
+}
