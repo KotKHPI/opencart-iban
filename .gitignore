@@ -5,7 +5,8 @@
 admin/config.php
 
 dist/
-dev/.env
+dev_oc4/.env
+dev_oc3/.env
 
 !index.html
 

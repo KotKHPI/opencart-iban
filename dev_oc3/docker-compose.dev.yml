@@ -1,0 +1,13 @@
+services:
+  opencart:
+    volumes:
+      - ../src_oc3/upload/admin/controller/extension/payment/opencart_iban.php:/var/www/html/admin/controller/extension/payment/opencart_iban.php:delegated
+      - ../src_oc3/upload/admin/language/en-gb/extension/payment/opencart_iban.php:/var/www/html/admin/language/en-gb/extension/payment/opencart_iban.php:delegated
+      - ../src_oc3/upload/admin/language/uk-ua/extension/payment/opencart_iban.php:/var/www/html/admin/language/uk-ua/extension/payment/opencart_iban.php:delegated
+      - ../src_oc3/upload/admin/view/template/extension/payment/opencart_iban.twig:/var/www/html/admin/view/template/extension/payment/opencart_iban.twig:delegated
+      - ../src_oc3/upload/catalog/controller/extension/payment/opencart_iban.php:/var/www/html/catalog/controller/extension/payment/opencart_iban.php:delegated
+      - ../src_oc3/upload/catalog/language/en-gb/extension/payment/opencart_iban.php:/var/www/html/catalog/language/en-gb/extension/payment/opencart_iban.php:delegated
+      - ../src_oc3/upload/catalog/language/uk-ua/extension/payment/opencart_iban.php:/var/www/html/catalog/language/uk-ua/extension/payment/opencart_iban.php:delegated
+      - ../src_oc3/upload/catalog/model/extension/payment/opencart_iban.php:/var/www/html/catalog/model/extension/payment/opencart_iban.php:delegated
+      - ../src_oc3/upload/catalog/view/theme/default/template/extension/payment/opencart_iban.twig:/var/www/html/catalog/view/theme/default/template/extension/payment/opencart_iban.twig:delegated
+

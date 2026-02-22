@@ -1,0 +1,54 @@
+<div class="text-end">
+  <button type="button" id="button-confirm" class="btn btn-primary">{{ button_pay }}</button>
+</div>
+<script type="text/javascript"><!--
+$('#button-confirm').on('click', function() {
+    var element = this;
+
+    $.ajax({
+        url: 'index.php?route=extension/opencart_iban/payment/opencart_iban.confirm&language={{ language }}',
+        dataType: 'json',
+        beforeSend: function() {
+            $(element).button('loading');
+        },
+        complete: function() {
+            $(element).button('reset');
+        },
+        success: function(json) {
+            if (json['error']) {
+                $('#alert').prepend('<div class="alert alert-danger alert-dismissible"><i class="fa-solid fa-circle-exclamation"></i> ' + json['error'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+                return;
+            }
+
+            if (json['redirect']) {
+                location = json['redirect'];
+                return;
+            }
+
+            if (json['form'] && json['form']['action'] && json['form']['fields']) {
+                var form = document.createElement('form');
+                form.method = 'POST';
+                form.action = json['form']['action'];
+
+                var fields = json['form']['fields'];
+
+                for (var name in fields) {
+                    if (!Object.prototype.hasOwnProperty.call(fields, name)) continue;
+
+                    var input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = name;
+                    input.value = fields[name];
+                    form.appendChild(input);
+                }
+
+                document.body.appendChild(form);
+                form.submit();
+            }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+//--></script>
