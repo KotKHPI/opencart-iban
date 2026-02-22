@@ -1,0 +1,4 @@
+services:
+  opencart:
+    volumes:
+      - ../src_oc4:/var/www/html/extension/opencart_iban:delegated
